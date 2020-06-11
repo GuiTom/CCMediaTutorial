@@ -39,7 +39,7 @@
     
     [self setupViewPort];
     
-//    [self complileShader];
+    [self complileShader];
     
     [self renderLayer];
 }
@@ -90,101 +90,9 @@
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.colorRenderBuffer);
 }
 -(void)renderLayer{
-//    glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
-//    glClear(GL_COLOR_BUFFER_BIT);
-//    GLfloat vertexs[] =
-//    {
-//        0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
-//        -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
-//        -0.5f, -0.5f, -1.0f,    0.0f, 0.0f,
-//        0.5f, 0.5f, -1.0f,      1.0f, 1.0f,
-//        -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
-//        0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
-//    };
-//    GLuint attrBuffer;
-//
-//    glGenBuffers(1, &attrBuffer);
-//
-//    glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
-//
-//    glBufferData(GL_ARRAY_BUFFER, sizeof(vertexs), vertexs, GL_DYNAMIC_DRAW);
-//
-//    GLuint position = glGetAttribLocation(self.shaderPrograme, "position");
-//
-//    glEnableVertexAttribArray(position);
-//    //设置顶点数据的读取方式
-//    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
-//
-//
-//    GLuint textCoor = glGetAttribLocation(self.shaderPrograme, "textCoordinate");
-//
-//    glEnableVertexAttribArray(textCoor);
-//
-//    glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (float *)NULL + 3);
-//
-//    [self setupTexture:@"1.jpg"];
-//
-//
-//
-//    GLuint rotate = glGetUniformLocation(self.shaderPrograme, "rotateMatrix");
-//
-//
-//    float radians = 10 * 3.14159f / 180.0f;
-//
-//    float s = sin(radians);
-//    float c = cos(radians);
-//
-//
-//    GLfloat zRotation[16] = {
-//        c, -s, 0, 0,
-//        s, c, 0, 0,
-//        0, 0, 1.0, 0,
-//        0.0, 0, 0, 1.0
-//    };
-//    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat*)&zRotation);
-//    glDrawArrays(GL_TRIANGLES, 0, 6);
-//
-//    [self.context presentRenderbuffer:GL_RENDERBUFFER];
-    
-    //设置清屏颜色
     glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
-    //清除屏幕
     glClear(GL_COLOR_BUFFER_BIT);
-    
-    //1.设置视口大小
-    CGFloat scale = [[UIScreen mainScreen]scale];
-    glViewport(self.view.frame.origin.x * scale, self.view.frame.origin.y * scale, self.view.frame.size.width * scale, self.view.frame.size.height * scale);
-    
-    //2.读取顶点着色程序、片元着色程序
-    NSString *vertFile = [[NSBundle mainBundle]pathForResource:@"shaderv" ofType:@"vsh"];
-    NSString *fragFile = [[NSBundle mainBundle]pathForResource:@"shaderf" ofType:@"fsh"];
-    
-    NSLog(@"vertFile:%@",vertFile);
-    NSLog(@"fragFile:%@",fragFile);
-    
-    //3.加载shader
-    self.shaderPrograme = [self loadShaders:vertFile Withfrag:fragFile];
-    
-    //4.链接
-    glLinkProgram(self.shaderPrograme);
-    GLint linkStatus;
-    //获取链接状态
-    glGetProgramiv(self.shaderPrograme, GL_LINK_STATUS, &linkStatus);
-    if (linkStatus == GL_FALSE) {
-        GLchar message[512];
-        glGetProgramInfoLog(self.shaderPrograme, sizeof(message), 0, &message[0]);
-        NSString *messageString = [NSString stringWithUTF8String:message];
-        NSLog(@"Program Link Error:%@",messageString);
-        return;
-    }
-    
-    NSLog(@"Program Link Success!");
-    //5.使用program
-    glUseProgram(self.shaderPrograme);
-    
-    //6.设置顶点、纹理坐标
-    //前3个是顶点坐标，后2个是纹理坐标
-    GLfloat attrArr[] =
+    GLfloat vertexs[] =
     {
         0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
         -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
@@ -193,95 +101,47 @@
         -0.5f, 0.5f, -1.0f,     0.0f, 1.0f,
         0.5f, -0.5f, -1.0f,     1.0f, 0.0f,
     };
-    
-    /*
-     1.解决渲染图片倒置问题：
-     GLfloat attrArr[] =
-     {
-     0.5f, -0.5f, 0.0f,        1.0f, 1.0f, //右下
-     -0.5f, 0.5f, 0.0f,        0.0f, 0.0f, // 左上
-     -0.5f, -0.5f, 0.0f,       0.0f, 1.0f, // 左下
-     0.5f, 0.5f, 0.0f,         1.0f, 0.0f, // 右上
-     -0.5f, 0.5f, 0.0f,        0.0f, 0.0f, // 左上
-     0.5f, -0.5f, 0.0f,        1.0f, 1.0f, // 右下
-     };
-     */
-    
-    //-----处理顶点数据--------
-    //顶点缓存区
     GLuint attrBuffer;
-    //申请一个缓存区标识符
+    
     glGenBuffers(1, &attrBuffer);
-    //将attrBuffer绑定到GL_ARRAY_BUFFER标识符上
+ 
     glBindBuffer(GL_ARRAY_BUFFER, attrBuffer);
-    //把顶点数据从CPU内存复制到GPU上
-    glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
-
-    //将顶点数据通过myPrograme中的传递到顶点着色程序的position
-    //1.glGetAttribLocation,用来获取vertex attribute的入口的.2.告诉OpenGL ES,通过glEnableVertexAttribArray，3.最后数据是通过glVertexAttribPointer传递过去的。
-    //注意：第二参数字符串必须和shaderv.vsh中的输入变量：position保持一致
+    
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertexs), vertexs, GL_DYNAMIC_DRAW);
+    
     GLuint position = glGetAttribLocation(self.shaderPrograme, "position");
     
-    //2.设置合适的格式从buffer里面读取数据
     glEnableVertexAttribArray(position);
-    
-    //3.设置读取方式
-    //参数1：index,顶点数据的索引
-    //参数2：size,每个顶点属性的组件数量，1，2，3，或者4.默认初始值是4.
-    //参数3：type,数据中的每个组件的类型，常用的有GL_FLOAT,GL_BYTE,GL_SHORT。默认初始值为GL_FLOAT
-    //参数4：normalized,固定点数据值是否应该归一化，或者直接转换为固定值。（GL_FALSE）
-    //参数5：stride,连续顶点属性之间的偏移量，默认为0；
-    //参数6：指定一个指针，指向数组中的第一个顶点属性的第一个组件。默认为0
+    //设置顶点数据的读取方式
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
     
     
-    //----处理纹理数据-------
-    //1.glGetAttribLocation,用来获取vertex attribute的入口的.
-    //注意：第二参数字符串必须和shaderv.vsh中的输入变量：textCoordinate保持一致
     GLuint textCoor = glGetAttribLocation(self.shaderPrograme, "textCoordinate");
     
-    //2.设置合适的格式从buffer里面读取数据
     glEnableVertexAttribArray(textCoor);
     
-    //3.设置读取方式
-    //参数1：index,顶点数据的索引
-    //参数2：size,每个顶点属性的组件数量，1，2，3，或者4.默认初始值是4.
-    //参数3：type,数据中的每个组件的类型，常用的有GL_FLOAT,GL_BYTE,GL_SHORT。默认初始值为GL_FLOAT
-    //参数4：normalized,固定点数据值是否应该归一化，或者直接转换为固定值。（GL_FALSE）
-    //参数5：stride,连续顶点属性之间的偏移量，默认为0；
-    //参数6：指定一个指针，指向数组中的第一个顶点属性的第一个组件。默认为0
     glVertexAttribPointer(textCoor, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat)*5, (float *)NULL + 3);
     
-    
-    //加载纹理
     [self setupTexture:@"1.jpg"];
     
-    //注意，想要获取shader里面的变量，这里记得要在glLinkProgram后面，后面，后面！
-    /*
-     一个一致变量在一个图元的绘制过程中是不会改变的，所以其值不能在glBegin/glEnd中设置。一致变量适合描述在一个图元中、一帧中甚至一个场景中都不变的值。一致变量在顶点shader和片断shader中都是只读的。首先你需要获得变量在内存中的位置，这个信息只有在连接程序之后才可获得
-     */
-    //rotate等于shaderv.vsh中的uniform属性，rotateMatrix
+    
+    
     GLuint rotate = glGetUniformLocation(self.shaderPrograme, "rotateMatrix");
     
-    //获取渲染的弧度
+    
     float radians = 10 * 3.14159f / 180.0f;
-    //求得弧度对于的sin\cos值
+
     float s = sin(radians);
     float c = cos(radians);
     
-    //z轴旋转矩阵 参考3D数学第二节课的围绕z轴渲染矩阵公式
-    //为什么和公司不一样？因为在3D课程中用的是横向量，在OpenGL ES用的是列向量
+   
     GLfloat zRotation[16] = {
         c, -s, 0, 0,
         s, c, 0, 0,
         0, 0, 1.0, 0,
         0.0, 0, 0, 1.0
     };
-    
-    //设置旋转矩阵
-    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat *)&zRotation[0]);
-    
-    
+    glUniformMatrix4fv(rotate, 1, GL_FALSE, (GLfloat*)&zRotation);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     
     [self.context presentRenderbuffer:GL_RENDERBUFFER];
