@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  HomeViewController.h
 //  CCKit
 //
 //  Created by CC on 2020/1/16.
@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-@property (strong, nonatomic) UIWindow *window;
+NS_ASSUME_NONNULL_BEGIN
+
+@interface HomeViewController : UIViewController
+
 @end
 
+NS_ASSUME_NONNULL_END

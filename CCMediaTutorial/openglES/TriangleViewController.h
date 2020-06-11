@@ -1,5 +1,5 @@
 //
-//  SceneDelegate.h
+//  TriangleViewController.h
 //  CCMediaTutorial
 //
 //  Created by Jerry Chen on 2020/6/11.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow * window;
+@interface TriangleViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
