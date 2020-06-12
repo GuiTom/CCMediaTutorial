@@ -19,8 +19,15 @@
 		2C9C6BBA24921C8F00B4E177 /* TriangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C6BB924921C8F00B4E177 /* TriangleViewController.m */; };
 		2C9C6BBD2492218D00B4E177 /* CCGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C6BBC2492218D00B4E177 /* CCGLView.m */; };
 		2C9C6BBF2492368A00B4E177 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6BBE2492368A00B4E177 /* 1.jpg */; };
-		2C9C6BC2249237DE00B4E177 /* shaderf.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6BC0249237DE00B4E177 /* shaderf.fsh */; };
-		2C9C6BC3249237DE00B4E177 /* shaderv.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6BC1249237DE00B4E177 /* shaderv.vsh */; };
+		2C9C6BC2249237DE00B4E177 /* shaderImageView.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6BC0249237DE00B4E177 /* shaderImageView.fsh */; };
+		2C9C6BC3249237DE00B4E177 /* shaderImageView.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6BC1249237DE00B4E177 /* shaderImageView.vsh */; };
+		2CB903E32492776A00CDBB27 /* CCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB903E22492776A00CDBB27 /* CCImageView.m */; };
+		2CB903E72493283000CDBB27 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB903E62493283000CDBB27 /* ImageViewController.m */; };
+		2CB903EE24932B4300CDBB27 /* TriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB903ED24932B4300CDBB27 /* TriangleView.m */; };
+		2CB903F024932E3900CDBB27 /* triangle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2CB903EF24932E3900CDBB27 /* triangle.vsh */; };
+		2CB903F224932E4C00CDBB27 /* triangle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2CB903F124932E4C00CDBB27 /* triangle.fsh */; };
+		2CB903F62493326F00CDBB27 /* RectangleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB903F52493326F00CDBB27 /* RectangleViewController.m */; };
+		2CB903F92493329E00CDBB27 /* RectangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB903F82493329E00CDBB27 /* RectangleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +71,20 @@
 		2C9C6BBB2492218D00B4E177 /* CCGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCGLView.h; sourceTree = "<group>"; };
 		2C9C6BBC2492218D00B4E177 /* CCGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCGLView.m; sourceTree = "<group>"; };
 		2C9C6BBE2492368A00B4E177 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		2C9C6BC0249237DE00B4E177 /* shaderf.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderf.fsh; sourceTree = "<group>"; };
-		2C9C6BC1249237DE00B4E177 /* shaderv.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderv.vsh; sourceTree = "<group>"; };
+		2C9C6BC0249237DE00B4E177 /* shaderImageView.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderImageView.fsh; sourceTree = "<group>"; };
+		2C9C6BC1249237DE00B4E177 /* shaderImageView.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shaderImageView.vsh; sourceTree = "<group>"; };
+		2CB903E12492776A00CDBB27 /* CCImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCImageView.h; sourceTree = "<group>"; };
+		2CB903E22492776A00CDBB27 /* CCImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCImageView.m; sourceTree = "<group>"; };
+		2CB903E52493283000CDBB27 /* ImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		2CB903E62493283000CDBB27 /* ImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		2CB903EC24932B4300CDBB27 /* TriangleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TriangleView.h; sourceTree = "<group>"; };
+		2CB903ED24932B4300CDBB27 /* TriangleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TriangleView.m; sourceTree = "<group>"; };
+		2CB903EF24932E3900CDBB27 /* triangle.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.vsh; sourceTree = "<group>"; };
+		2CB903F124932E4C00CDBB27 /* triangle.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.fsh; sourceTree = "<group>"; };
+		2CB903F42493326F00CDBB27 /* RectangleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectangleViewController.h; sourceTree = "<group>"; };
+		2CB903F52493326F00CDBB27 /* RectangleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RectangleViewController.m; sourceTree = "<group>"; };
+		2CB903F72493329E00CDBB27 /* RectangleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectangleView.h; sourceTree = "<group>"; };
+		2CB903F82493329E00CDBB27 /* RectangleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RectangleView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,11 +181,10 @@
 		2C9C6BB624921C3700B4E177 /* openglES */ = {
 			isa = PBXGroup;
 			children = (
+				2CB903F32493325300CDBB27 /* rectangle */,
+				2CB903EB24932AED00CDBB27 /* triangleView */,
+				2CB903E4249327FF00CDBB27 /* iamgeVIew */,
 				2C9C6BBE2492368A00B4E177 /* 1.jpg */,
-				2C9C6BC0249237DE00B4E177 /* shaderf.fsh */,
-				2C9C6BC1249237DE00B4E177 /* shaderv.vsh */,
-				2C9C6BB824921C8F00B4E177 /* TriangleViewController.h */,
-				2C9C6BB924921C8F00B4E177 /* TriangleViewController.m */,
 				2C9C6BBB2492218D00B4E177 /* CCGLView.h */,
 				2C9C6BBC2492218D00B4E177 /* CCGLView.m */,
 			);
@@ -178,6 +196,43 @@
 			children = (
 			);
 			path = video;
+			sourceTree = "<group>";
+		};
+		2CB903E4249327FF00CDBB27 /* iamgeVIew */ = {
+			isa = PBXGroup;
+			children = (
+				2C9C6BC0249237DE00B4E177 /* shaderImageView.fsh */,
+				2C9C6BC1249237DE00B4E177 /* shaderImageView.vsh */,
+				2CB903E12492776A00CDBB27 /* CCImageView.h */,
+				2CB903E22492776A00CDBB27 /* CCImageView.m */,
+				2CB903E52493283000CDBB27 /* ImageViewController.h */,
+				2CB903E62493283000CDBB27 /* ImageViewController.m */,
+			);
+			path = iamgeVIew;
+			sourceTree = "<group>";
+		};
+		2CB903EB24932AED00CDBB27 /* triangleView */ = {
+			isa = PBXGroup;
+			children = (
+				2C9C6BB824921C8F00B4E177 /* TriangleViewController.h */,
+				2C9C6BB924921C8F00B4E177 /* TriangleViewController.m */,
+				2CB903EC24932B4300CDBB27 /* TriangleView.h */,
+				2CB903ED24932B4300CDBB27 /* TriangleView.m */,
+				2CB903EF24932E3900CDBB27 /* triangle.vsh */,
+				2CB903F124932E4C00CDBB27 /* triangle.fsh */,
+			);
+			path = triangleView;
+			sourceTree = "<group>";
+		};
+		2CB903F32493325300CDBB27 /* rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				2CB903F42493326F00CDBB27 /* RectangleViewController.h */,
+				2CB903F52493326F00CDBB27 /* RectangleViewController.m */,
+				2CB903F72493329E00CDBB27 /* RectangleView.h */,
+				2CB903F82493329E00CDBB27 /* RectangleView.m */,
+			);
+			path = rectangle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,10 +338,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C9C6BC2249237DE00B4E177 /* shaderf.fsh in Resources */,
+				2CB903F024932E3900CDBB27 /* triangle.vsh in Resources */,
+				2CB903F224932E4C00CDBB27 /* triangle.fsh in Resources */,
+				2C9C6BC2249237DE00B4E177 /* shaderImageView.fsh in Resources */,
 				2C9C6B8A24921A2F00B4E177 /* LaunchScreen.storyboard in Resources */,
 				2C9C6BBF2492368A00B4E177 /* 1.jpg in Resources */,
-				2C9C6BC3249237DE00B4E177 /* shaderv.vsh in Resources */,
+				2C9C6BC3249237DE00B4E177 /* shaderImageView.vsh in Resources */,
 				2C9C6B8724921A2F00B4E177 /* Assets.xcassets in Resources */,
 				2C9C6B8524921A2C00B4E177 /* Main.storyboard in Resources */,
 			);
@@ -315,9 +372,14 @@
 			files = (
 				2C9C6B7C24921A2C00B4E177 /* AppDelegate.m in Sources */,
 				2C9C6BBD2492218D00B4E177 /* CCGLView.m in Sources */,
+				2CB903E72493283000CDBB27 /* ImageViewController.m in Sources */,
+				2CB903F92493329E00CDBB27 /* RectangleView.m in Sources */,
 				2C9C6B8D24921A2F00B4E177 /* main.m in Sources */,
+				2CB903F62493326F00CDBB27 /* RectangleViewController.m in Sources */,
 				2C9C6BB424921AC700B4E177 /* HomeDataSource.m in Sources */,
+				2CB903EE24932B4300CDBB27 /* TriangleView.m in Sources */,
 				2C9C6BBA24921C8F00B4E177 /* TriangleViewController.m in Sources */,
+				2CB903E32492776A00CDBB27 /* CCImageView.m in Sources */,
 				2C9C6BB524921AC700B4E177 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <OpenGLES/ES2/gl.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CCGLView : UIView
 @property(nonatomic,strong)CAEAGLLayer *eaglLayer;
+@property(nonatomic,strong)EAGLContext *context;
+@property(nonatomic,assign)GLuint colorRenderBuffer;
+@property(nonatomic,assign)GLuint frameBuffer;
+@property(nonatomic,assign)GLuint shaderPrograme;
 -(void)setUpLayer;
+-(void)complileShader:(NSString*)shaderrv shaderrf:(NSString*)shaderrf;
 @end
 
 NS_ASSUME_NONNULL_END
