@@ -11,6 +11,7 @@
 #import "TriangleViewController.h"
 #import "ImageViewController.h"
 #import "RectangleViewController.h"
+#import "MVPTransfromVC.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *table;
 
@@ -77,6 +78,8 @@ static NSString *cellId = @"cellID";
             [self.navigationController pushViewController:[TriangleViewController new] animated:YES];
         }else if([title isEqualToString:@"绘制一个矩形"]){
              [self.navigationController pushViewController:[RectangleViewController new] animated:YES];
+        }else if([title isEqualToString:@"透视投影变换"]){
+             [self.navigationController pushViewController:[MVPTransfromVC new] animated:YES];
         }
         else if([title isEqualToString:@"加载一张图片"]){
             [self.navigationController pushViewController:[ImageViewController new] animated:YES];

@@ -32,8 +32,6 @@
     
     [self setupViewPort];
     
- 
-    
    
 }
 
