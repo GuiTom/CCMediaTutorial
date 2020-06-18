@@ -50,16 +50,16 @@
         glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
         glBindBuffer(GL_ARRAY_BUFFER, _myVertices);
 
-        GLuint position = glGetAttribLocation(self.shaderPrograme, "position");
+        GLuint position = glGetAttribLocation(self.shaderProgram, "position");
         glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, NULL);
         glEnableVertexAttribArray(position);
 
-        GLuint positionColor = glGetAttribLocation(self.shaderPrograme, "positionColor");
+        GLuint positionColor = glGetAttribLocation(self.shaderProgram, "positionColor");
         glVertexAttribPointer(positionColor, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 6, (float *)NULL + 3);
         glEnableVertexAttribArray(positionColor);
 
-        GLuint projectionMatrixSlot = glGetUniformLocation(self.shaderPrograme, "projectionMatrix");
-        GLuint modelViewMatrixSlot = glGetUniformLocation(self.shaderPrograme, "modelViewMatrix");
+        GLuint projectionMatrixSlot = glGetUniformLocation(self.shaderProgram, "projectionMatrix");
+        GLuint modelViewMatrixSlot = glGetUniformLocation(self.shaderProgram, "modelViewMatrix");
 
         float width = self.frame.size.width;
         float height = self.frame.size.height;

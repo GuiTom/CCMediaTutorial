@@ -42,14 +42,14 @@
     
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexs), vertexs, GL_DYNAMIC_DRAW);
     
-    GLuint position = glGetAttribLocation(self.shaderPrograme, "position");
+    GLuint position = glGetAttribLocation(self.shaderProgram, "position");
     
     glEnableVertexAttribArray(position);
     //设置顶点数据的读取方式
     glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
     
     
-    GLuint textCoor = glGetAttribLocation(self.shaderPrograme, "textCoordinate");
+    GLuint textCoor = glGetAttribLocation(self.shaderProgram, "textCoordinate");
     
     glEnableVertexAttribArray(textCoor);
     
@@ -59,7 +59,7 @@
     
     
     
-    GLuint rotate = glGetUniformLocation(self.shaderPrograme, "rotateMatrix");
+    GLuint rotate = glGetUniformLocation(self.shaderProgram, "rotateMatrix");
     
     
     float radians = 0 * 3.14159f / 180.0f;

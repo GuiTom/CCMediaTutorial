@@ -109,23 +109,23 @@
 //    NSLog(@"fragFile:%@",fragFile);
     
     //3.加载shader
-    self.shaderPrograme = [self loadShaders:vertFile Withfrag:fragFile];
+    self.shaderProgram = [self loadShaders:vertFile Withfrag:fragFile];
     
     //4.链接
-    glLinkProgram(self.shaderPrograme);
+    glLinkProgram(self.shaderProgram);
     GLint linkStatus;
     //获取链接状态
-    glGetProgramiv(self.shaderPrograme, GL_LINK_STATUS, &linkStatus);
+    glGetProgramiv(self.shaderProgram, GL_LINK_STATUS, &linkStatus);
     if (linkStatus == GL_FALSE) {
         GLchar message[512];
-        glGetProgramInfoLog(self.shaderPrograme, sizeof(message), 0, &message[0]);
+        glGetProgramInfoLog(self.shaderProgram, sizeof(message), 0, &message[0]);
         NSString *messageString = [NSString stringWithUTF8String:message];
         NSLog(@"Program Link Error:%@",messageString);
         return;
     }
     NSLog(@"Program Link Success!");
     //5.使用program
-    glUseProgram(self.shaderPrograme);
+    glUseProgram(self.shaderProgram);
 }
 -(GLuint)loadShaders:(NSString *)vert Withfrag:(NSString *)frag
 {

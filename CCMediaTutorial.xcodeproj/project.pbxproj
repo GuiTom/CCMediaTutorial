@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C05BA642498AE85000CDD99 /* VideoCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05BA632498AE85000CDD99 /* VideoCaptureViewController.m */; };
+		2C05BA672498AEA9000CDD99 /* VideoCaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05BA662498AEA9000CDD99 /* VideoCaptureView.m */; };
+		2C3A1A57249B3D6D0037DD44 /* WCLRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A1A55249B3D6D0037DD44 /* WCLRecordEncoder.m */; };
 		2C9C6B7C24921A2C00B4E177 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C6B7B24921A2C00B4E177 /* AppDelegate.m */; };
 		2C9C6B8724921A2F00B4E177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6B8624921A2F00B4E177 /* Assets.xcassets */; };
 		2C9C6B8A24921A2F00B4E177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6B8824921A2F00B4E177 /* LaunchScreen.storyboard */; };
@@ -53,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C05BA622498AE85000CDD99 /* VideoCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCaptureViewController.h; sourceTree = "<group>"; };
+		2C05BA632498AE85000CDD99 /* VideoCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCaptureViewController.m; sourceTree = "<group>"; };
+		2C05BA652498AEA9000CDD99 /* VideoCaptureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCaptureView.h; sourceTree = "<group>"; };
+		2C05BA662498AEA9000CDD99 /* VideoCaptureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCaptureView.m; sourceTree = "<group>"; };
+		2C3A1A54249B3D6D0037DD44 /* WCLRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEncoder.h; sourceTree = "<group>"; };
+		2C3A1A55249B3D6D0037DD44 /* WCLRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEncoder.m; sourceTree = "<group>"; };
 		2C9C6B7724921A2C00B4E177 /* CCMediaTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCMediaTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C9C6B7A24921A2C00B4E177 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2C9C6B7B24921A2C00B4E177 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +137,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C05BA612498AE57000CDD99 /* videoCapture */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A1A53249B3D6D0037DD44 /* WCLRecordEncoder */,
+				2C05BA622498AE85000CDD99 /* VideoCaptureViewController.h */,
+				2C05BA632498AE85000CDD99 /* VideoCaptureViewController.m */,
+				2C05BA652498AEA9000CDD99 /* VideoCaptureView.h */,
+				2C05BA662498AEA9000CDD99 /* VideoCaptureView.m */,
+			);
+			path = videoCapture;
+			sourceTree = "<group>";
+		};
+		2C3A1A53249B3D6D0037DD44 /* WCLRecordEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A1A54249B3D6D0037DD44 /* WCLRecordEncoder.h */,
+				2C3A1A55249B3D6D0037DD44 /* WCLRecordEncoder.m */,
+			);
+			path = WCLRecordEncoder;
+			sourceTree = "<group>";
+		};
 		2C9C6B6E24921A2C00B4E177 = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +226,7 @@
 		2C9C6BB624921C3700B4E177 /* openglES */ = {
 			isa = PBXGroup;
 			children = (
+				2C05BA612498AE57000CDD99 /* videoCapture */,
 				2CB0FD742494790C005A7447 /* Utils */,
 				2CB0FD6D2494773C005A7447 /* mvptransform */,
 				2CB903F32493325300CDBB27 /* rectangle */,
@@ -415,7 +446,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9C6B7C24921A2C00B4E177 /* AppDelegate.m in Sources */,
+				2C05BA642498AE85000CDD99 /* VideoCaptureViewController.m in Sources */,
 				2C9C6BBD2492218D00B4E177 /* CCGLView.m in Sources */,
+				2C05BA672498AEA9000CDD99 /* VideoCaptureView.m in Sources */,
 				2CB903E72493283000CDBB27 /* ImageViewController.m in Sources */,
 				2CB0FD70249477EE005A7447 /* MVPTransfromVC.m in Sources */,
 				2CB903F92493329E00CDBB27 /* RectangleView.m in Sources */,
@@ -426,6 +459,7 @@
 				2CB0FD7B2494790C005A7447 /* GLESUtils.m in Sources */,
 				2CB903EE24932B4300CDBB27 /* TriangleView.m in Sources */,
 				2C9C6BBA24921C8F00B4E177 /* TriangleViewController.m in Sources */,
+				2C3A1A57249B3D6D0037DD44 /* WCLRecordEncoder.m in Sources */,
 				2CB903E32492776A00CDBB27 /* CCImageView.m in Sources */,
 				2CB0FD7324947827005A7447 /* MVPTransfromView.m in Sources */,
 				2C9C6BB524921AC700B4E177 /* HomeViewController.m in Sources */,
@@ -590,6 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SNM23S7N87;
 				INFOPLIST_FILE = CCMediaTutorial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -607,6 +642,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SNM23S7N87;
 				INFOPLIST_FILE = CCMediaTutorial/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

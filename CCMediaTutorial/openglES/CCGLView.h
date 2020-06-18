@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)EAGLContext *context;
 @property(nonatomic,assign)GLuint colorRenderBuffer;
 @property(nonatomic,assign)GLuint frameBuffer;
-@property(nonatomic,assign)GLuint shaderPrograme;
+@property(nonatomic,assign)GLuint shaderProgram;
 -(void)setUpLayer;
 -(void)complileShader:(NSString*)shaderrv shaderrf:(NSString*)shaderrf;
 @end

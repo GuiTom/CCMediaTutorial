@@ -22,9 +22,9 @@
 
     glClear(GL_COLOR_BUFFER_BIT);
 
-    GLuint position = glGetAttribLocation(self.shaderPrograme, "position");
+    GLuint position = glGetAttribLocation(self.shaderProgram, "position");
 
-    GLuint textCoor = glGetAttribLocation(self.shaderPrograme, "sourceColor");
+    GLuint textCoor = glGetAttribLocation(self.shaderProgram, "sourceColor");
 
     const GLfloat Vertices[] = {
         -0.5f,-0.5f,1,0,0,0,// 左下，黑色
