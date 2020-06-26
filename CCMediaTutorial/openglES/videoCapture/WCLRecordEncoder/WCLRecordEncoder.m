@@ -113,7 +113,13 @@
 //    if(self.writer.status!=AVAssetWriterStatusCompleted&&self.writer.status!=AVAssetWriterStatusUnknown){
 //        [self.videoInput markAsFinished];
     @try {
-        
+        if (_writer.status == AVAssetWriterStatusCompleted || _writer.status == AVAssetWriterStatusCancelled || _writer.status == AVAssetWriterStatusUnknown)
+        {
+            handler();
+            return;
+        }
+        [_audioInput markAsFinished];
+        [_videoInput markAsFinished];
         [_writer finishWritingWithCompletionHandler: handler];
         
     } @catch (NSException *exception) {
@@ -131,6 +137,8 @@
 //    }
 }
 -(void)cancelWriting{
+    [_audioInput markAsFinished];
+    [_videoInput markAsFinished];
     [_writer cancelWriting];
 }
 //通过这个方法写入数据

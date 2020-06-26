@@ -13,6 +13,7 @@
 #import "RectangleViewController.h"
 #import "MVPTransfromVC.h"
 #import "VideoCaptureViewController.h"
+#import "GpuCameraCaptureVC.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *table;
 
@@ -86,6 +87,8 @@ static NSString *cellId = @"cellID";
             [self.navigationController pushViewController:[ImageViewController new] animated:YES];
         }else if([title isEqualToString:@"视频采集变换"]){
             [self.navigationController pushViewController:[VideoCaptureViewController new] animated:YES];
+        }else if([title isEqualToString:@"GPUImage视频采集变换"]){
+            [self.navigationController pushViewController:[GpuCameraCaptureVC new] animated:YES];
         }
     }
     

@@ -8,6 +8,7 @@
 
 #import "VideoCaptureViewController.h"
 #import "VideoCaptureView.h"
+#import "WCLRecordEncoder.h"
 #import <AVFoundation/AVFoundation.h>
 @interface VideoCaptureViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (strong, nonatomic) AVCaptureSession *session;
@@ -15,11 +16,15 @@
 @property (strong, nonatomic) AVCaptureDeviceInput *input;
 @property (strong, nonatomic) AVCaptureDeviceInput *audioInput;
 @property (strong, nonatomic) AVCaptureAudioDataOutput *audioOutput;
+@property (strong, nonatomic) NSString *outputFilePath;
 @property(strong,nonatomic)AVCaptureConnection *captureConnection;
+@property (strong, nonatomic) WCLRecordEncoder  *recordEncoder;//录制编码
+@property(assign,nonatomic)BOOL needCapture;
 @end
 @implementation VideoCaptureViewController
 {
     BOOL _captureAudio;
+    CMFormatDescriptionRef audioFmt;
 }
 -(void)loadView{
     self.view = [VideoCaptureView new];
@@ -28,9 +33,32 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
     // Do any additional setup after loading the view.
+    
+    UIButton *buttonA = [UIButton new];
+    buttonA.frame = CGRectMake(100, 100, 100, 30);
+    [self.view addSubview:buttonA];
+    
+    [buttonA addTarget:self action:@selector(onClickButtonA:) forControlEvents:UIControlEventTouchUpInside];
+    [buttonA setTitle:@"开始" forState:UIControlStateNormal];
     [self setupCaptureSession];
 }
-
+-(void)onClickButtonA:(UIButton*)sender{
+    if(self.needCapture){
+        self.needCapture = NO;
+        [self.recordEncoder cancelWriting];
+        __weak typeof(self)weakSelf = self;
+        [self.recordEncoder finishWithCompletionHandler:^{
+        
+            weakSelf.recordEncoder = nil;
+            
+        }];
+        NSLog(@"结束录制");
+    }else {
+        self.needCapture = YES;
+        
+        NSLog(@"开始录制");
+    }
+}
 - (void)setupCaptureSession
 {
    
@@ -154,21 +182,46 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
        fromConnection:(AVCaptureConnection *)connection
 {
     CFRetain(sampleBuffer);
-   
+    BOOL isVideo = YES;
     if(self.audioOutput == captureOutput){
+        if(self.recordEncoder==nil&&!audioFmt){
+            audioFmt = CMSampleBufferGetFormatDescription(sampleBuffer);
+        }
         CFRelease(sampleBuffer);
     }else {
         __weak typeof(self)weakSelf = self;
         
+        size_t width = 0,height = 0;
+        if(self.needCapture&&!width&&!height){
+            CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+            width = CVPixelBufferGetWidth(imageBuffer);
+            height = CVPixelBufferGetHeight(imageBuffer);
+        }
+        if(!_recordEncoder&&self.needCapture&&audioFmt){
+            const AudioStreamBasicDescription *asbd = CMAudioFormatDescriptionGetStreamBasicDescription(audioFmt);
+            
+            _recordEncoder = [[WCLRecordEncoder alloc] initPath:self.outputFilePath Height:width width:height channels:asbd->mChannelsPerFrame samples:asbd->mSampleRate];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
-         
-            [((VideoCaptureView*)weakSelf.view) laodTextureFormSampleBuffer:sampleBuffer];
-            CFRelease(sampleBuffer);
-            [((VideoCaptureView*)weakSelf.view) draw];
+                [((VideoCaptureView*)weakSelf.view) laodTextureFormSampleBuffer:sampleBuffer];
+                CFRelease(sampleBuffer);
+                [((VideoCaptureView*)weakSelf.view) draw];
         });
+    }
+    if(_recordEncoder&&self.needCapture&&audioFmt){
+        [_recordEncoder encodeFrame:sampleBuffer isVideo:isVideo];
+    }else {
         
     }
     
+}
+
+-(NSString*)outputFilePath{
+    if(!_outputFilePath){
+        _outputFilePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        _outputFilePath = [NSString stringWithFormat:@"%@/1.mp4",_outputFilePath];
+    }
+    return _outputFilePath;
 }
 
 @end

@@ -113,11 +113,12 @@ GLint attribute[NUM_ATTRIBUTES];
     // Get the pixel buffer width and height
     size_t width = CVPixelBufferGetWidth(imageBuffer);
     size_t height = CVPixelBufferGetHeight(imageBuffer);
-    NSLog(@"width:%d height:%d",width,height);
+//    NSLog(@"width:%d height:%d",width,height);
     GLubyte * spriteData = (GLubyte *) calloc(bytesPerRow*height, sizeof(GLubyte));
     
     memmove(spriteData, baseAddress, bytesPerRow*height);
     
+    CVPixelBufferUnlockBaseAddress(imageBuffer,0);
     glBindTexture(GL_TEXTURE_2D, 0);
     
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR );
