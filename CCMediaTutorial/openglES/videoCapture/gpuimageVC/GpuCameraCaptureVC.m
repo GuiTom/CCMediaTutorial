@@ -12,6 +12,8 @@
 #import "GPUImageVideoCamera.h"
 #import "GPUImageOutput.h"
 #import "GPUImageFilter.h"
+#import "GPUImageBilateralFilter.h"
+#import "GPUImageGaussianBlurFilter.h"
 @interface GpuCameraCaptureVC ()
 
 @end
@@ -35,7 +37,7 @@ GPUImageOutput<GPUImageInput> *filter;
      videoCamera.horizontallyMirrorFrontFacingCamera = NO;
      videoCamera.horizontallyMirrorRearFacingCamera = NO;
     
-     filter = [[GPUImageFilter alloc] init];
+     filter = [[GPUImageGaussianBlurFilter alloc] init];
     [filter addTarget:(GPUImageView*)self.view];
     [videoCamera addTarget:filter];
     [videoCamera startCameraCapture];

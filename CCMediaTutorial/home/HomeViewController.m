@@ -14,6 +14,7 @@
 #import "MVPTransfromVC.h"
 #import "VideoCaptureViewController.h"
 #import "GpuCameraCaptureVC.h"
+#import "SingleFilterVC.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *table;
 
@@ -89,6 +90,8 @@ static NSString *cellId = @"cellID";
             [self.navigationController pushViewController:[VideoCaptureViewController new] animated:YES];
         }else if([title isEqualToString:@"GPUImage视频采集变换"]){
             [self.navigationController pushViewController:[GpuCameraCaptureVC new] animated:YES];
+        }else if([title isEqualToString:@"图片滤镜(单滤镜)"]){
+            [self.navigationController pushViewController:[SingleFilterVC new] animated:YES];
         }
     }
     

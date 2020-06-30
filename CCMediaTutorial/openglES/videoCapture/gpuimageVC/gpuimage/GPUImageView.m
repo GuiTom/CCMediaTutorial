@@ -94,7 +94,7 @@
 
     self.enabled = YES;
     
-    runSynchronouslyOnVideoProcessingQueue(^{
+ 
         [GPUImageContext useImageProcessingContext];
         
         displayProgram = [[GPUImageContext sharedImageProcessingContext] programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
@@ -127,7 +127,7 @@
         [self setBackgroundColorRed:0.0 green:0.0 blue:0.0 alpha:1.0];
         _fillMode = kGPUImageFillModePreserveAspectRatio;
         [self createDisplayFramebuffer];
-    });
+   
 }
 
 - (void)layoutSubviews {
@@ -232,7 +232,8 @@
 
 - (void)recalculateViewGeometry;
 {
-    runSynchronouslyOnVideoProcessingQueue(^{
+    
+//    runSynchronouslyOnVideoProcessingQueue(^{
         CGFloat heightScaling, widthScaling;
         
         CGSize currentViewSize = self.bounds.size;
@@ -270,7 +271,7 @@
         imageVertices[5] = heightScaling;
         imageVertices[6] = widthScaling;
         imageVertices[7] = heightScaling;
-    });
+//    });
     
 //    static const GLfloat imageVertices[] = {
 //        -1.0f, -1.0f,

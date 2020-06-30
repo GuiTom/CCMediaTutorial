@@ -126,6 +126,8 @@
     NSLog(@"Program Link Success!");
     //5.使用program
     glUseProgram(self.shaderProgram);
+    
+
 }
 -(GLuint)loadShaders:(NSString *)vert Withfrag:(NSString *)frag
 {

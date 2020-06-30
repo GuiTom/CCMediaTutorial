@@ -608,58 +608,20 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
 
 - (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 {
-    if (capturePaused)
-    {
-        return;
-    }
-    
-    CFAbsoluteTime startTime = CFAbsoluteTimeGetCurrent();
     CVImageBufferRef cameraFrame = CMSampleBufferGetImageBuffer(sampleBuffer);
     int bufferWidth = (int) CVPixelBufferGetWidth(cameraFrame);
     int bufferHeight = (int) CVPixelBufferGetHeight(cameraFrame);
-    CFTypeRef colorAttachments = CVBufferGetAttachment(cameraFrame, kCVImageBufferYCbCrMatrixKey, NULL);
-    if (colorAttachments != NULL)
-    {
-        if(CFStringCompare(colorAttachments, kCVImageBufferYCbCrMatrix_ITU_R_601_4, 0) == kCFCompareEqualTo)
-        {
-            if (isFullYUVRange)
-            {
-                _preferredConversion = kColorConversion601FullRange;
-            }
-            else
-            {
-                _preferredConversion = kColorConversion601;
-            }
-        }
-        else
-        {
-            _preferredConversion = kColorConversion709;
-        }
-    }
-    else
-    {
-        if (isFullYUVRange)
-        {
-            _preferredConversion = kColorConversion601FullRange;
-        }
-        else
-        {
-            _preferredConversion = kColorConversion601;
-        }
-    }
+
+    _preferredConversion = kColorConversion601FullRange;
 
 	CMTime currentTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
 
     [GPUImageContext useImageProcessingContext];
 
-    if ([GPUImageContext supportsFastTextureUpload] && captureAsYUV)
-    {
+
         CVOpenGLESTextureRef luminanceTextureRef = NULL;
         CVOpenGLESTextureRef chrominanceTextureRef = NULL;
 
-//        if (captureAsYUV && [GPUImageContext deviceSupportsRedTextures])
-        if (CVPixelBufferGetPlaneCount(cameraFrame) > 0) // Check for YUV planar inputs to do RGB conversion
-        {
             CVPixelBufferLockBaseAddress(cameraFrame, 0);
             
             if ( (imageBufferWidth != bufferWidth) && (imageBufferHeight != bufferHeight) )
@@ -673,7 +635,7 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
             glActiveTexture(GL_TEXTURE4);
             if ([GPUImageContext deviceSupportsRedTextures])
             {
-//                err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, coreVideoTextureCache, cameraFrame, NULL, GL_TEXTURE_2D, GL_RED_EXT, bufferWidth, bufferHeight, GL_RED_EXT, GL_UNSIGNED_BYTE, 0, &luminanceTextureRef);
+
                 err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, [[GPUImageContext sharedImageProcessingContext] coreVideoTextureCache], cameraFrame, NULL, GL_TEXTURE_2D, GL_LUMINANCE, bufferWidth, bufferHeight, GL_LUMINANCE, GL_UNSIGNED_BYTE, 0, &luminanceTextureRef);
             }
             else
@@ -694,7 +656,7 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
             glActiveTexture(GL_TEXTURE5);
             if ([GPUImageContext deviceSupportsRedTextures])
             {
-//                err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, coreVideoTextureCache, cameraFrame, NULL, GL_TEXTURE_2D, GL_RG_EXT, bufferWidth/2, bufferHeight/2, GL_RG_EXT, GL_UNSIGNED_BYTE, 1, &chrominanceTextureRef);
+
                 err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, [[GPUImageContext sharedImageProcessingContext] coreVideoTextureCache], cameraFrame, NULL, GL_TEXTURE_2D, GL_LUMINANCE_ALPHA, bufferWidth/2, bufferHeight/2, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, 1, &chrominanceTextureRef);
             }
             else
@@ -711,10 +673,9 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
             
-//            if (!allTargetsWantMonochromeData)
-//            {
-                [self convertYUVToRGBOutput];
-//            }
+
+            [self convertYUVToRGBOutput];
+
 
             int rotatedImageBufferWidth = bufferWidth, rotatedImageBufferHeight = bufferHeight;
             
@@ -729,80 +690,9 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
             CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
             CFRelease(luminanceTextureRef);
             CFRelease(chrominanceTextureRef);
-        }
-        else
-        {
-            // TODO: Mesh this with the output framebuffer structure
-            
-//            CVPixelBufferLockBaseAddress(cameraFrame, 0);
-//            
-//            CVReturn err = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault, [[GPUImageContext sharedImageProcessingContext] coreVideoTextureCache], cameraFrame, NULL, GL_TEXTURE_2D, GL_RGBA, bufferWidth, bufferHeight, GL_BGRA, GL_UNSIGNED_BYTE, 0, &texture);
-//            
-//            if (!texture || err) {
-//                NSLog(@"Camera CVOpenGLESTextureCacheCreateTextureFromImage failed (error: %d)", err);
-//                NSAssert(NO, @"Camera failure");
-//                return;
-//            }
-//            
-//            outputTexture = CVOpenGLESTextureGetName(texture);
-//            //        glBindTexture(CVOpenGLESTextureGetTarget(texture), outputTexture);
-//            glBindTexture(GL_TEXTURE_2D, outputTexture);
-//            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-//            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-//            
-//            [self updateTargetsForVideoCameraUsingCacheTextureAtWidth:bufferWidth height:bufferHeight time:currentTime];
-//
-//            CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
-//            CFRelease(texture);
-//
-//            outputTexture = 0;
-        }
         
-        
-        if (_runBenchmark)
-        {
-            numberOfFramesCaptured++;
-            if (numberOfFramesCaptured > INITIALFRAMESTOIGNOREFORBENCHMARK)
-            {
-                CFAbsoluteTime currentFrameTime = (CFAbsoluteTimeGetCurrent() - startTime);
-                totalFrameTimeDuringCapture += currentFrameTime;
-                NSLog(@"Average frame time : %f ms", [self averageFrameDurationDuringCapture]);
-                NSLog(@"Current frame time : %f ms", 1000.0 * currentFrameTime);
-            }
-        }
-    }
-    else
-    {
-        CVPixelBufferLockBaseAddress(cameraFrame, 0);
-        
-        int bytesPerRow = (int) CVPixelBufferGetBytesPerRow(cameraFrame);
-        outputFramebuffer = [[GPUImageContext sharedFramebufferCache] fetchFramebufferForSize:CGSizeMake(bytesPerRow / 4, bufferHeight) onlyTexture:YES];
-        [outputFramebuffer activateFramebuffer];
 
-        glBindTexture(GL_TEXTURE_2D, [outputFramebuffer texture]);
-        
-        //        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bufferWidth, bufferHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(cameraFrame));
-        
-        // Using BGRA extension to pull in video frame data directly
-        // The use of bytesPerRow / 4 accounts for a display glitch present in preview video frames when using the photo preset on the camera
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bytesPerRow / 4, bufferHeight, 0, GL_BGRA, GL_UNSIGNED_BYTE, CVPixelBufferGetBaseAddress(cameraFrame));
-        
-        [self updateTargetsForVideoCameraUsingCacheTextureAtWidth:bytesPerRow / 4 height:bufferHeight time:currentTime];
-        
-        CVPixelBufferUnlockBaseAddress(cameraFrame, 0);
-        
-        if (_runBenchmark)
-        {
-            numberOfFramesCaptured++;
-            if (numberOfFramesCaptured > INITIALFRAMESTOIGNOREFORBENCHMARK)
-            {
-                CFAbsoluteTime currentFrameTime = (CFAbsoluteTimeGetCurrent() - startTime);
-                totalFrameTimeDuringCapture += currentFrameTime;
-            }
-        }
-    }  
+    
 }
 
 - (void)processAudioSampleBuffer:(CMSampleBufferRef)sampleBuffer;
@@ -886,6 +776,7 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
         }
         
         CFRetain(sampleBuffer);
+        __weak typeof(self) weakSelf = self;
         runAsynchronouslyOnVideoProcessingQueue(^{
             //Feature Detection Hook.
             if (self.delegate)
@@ -896,7 +787,8 @@ void setColorConversion709( GLfloat conversionMatrix[9] )
             [self processVideoSampleBuffer:sampleBuffer];
             
             CFRelease(sampleBuffer);
-            dispatch_semaphore_signal(frameRenderingSemaphore);
+            __strong typeof (self)strongSelf = weakSelf;
+            dispatch_semaphore_signal(strongSelf->frameRenderingSemaphore);
         });
     }
 }
