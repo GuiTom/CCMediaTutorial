@@ -42,6 +42,8 @@
 		2CAFD99D24AAF65600AC214B /* CCTemperature.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2CAFD99A24AAF65600AC214B /* CCTemperature.fsh */; };
 		2CAFD99E24AAF65600AC214B /* CCSaturation.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2CAFD99B24AAF65600AC214B /* CCSaturation.fsh */; };
 		2CAFD99F24AAF65600AC214B /* CCVertexShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2CAFD99C24AAF65600AC214B /* CCVertexShader.vsh */; };
+		2CAFD9A324AB2FE400AC214B /* ImageFilterChainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAFD9A224AB2FE400AC214B /* ImageFilterChainVC.m */; };
+		2CAFD9A624AB301E00AC214B /* FilterChainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CAFD9A524AB301E00AC214B /* FilterChainView.m */; };
 		2CB0FD70249477EE005A7447 /* MVPTransfromVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0FD6F249477EE005A7447 /* MVPTransfromVC.m */; };
 		2CB0FD7324947827005A7447 /* MVPTransfromView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0FD7224947827005A7447 /* MVPTransfromView.m */; };
 		2CB0FD7B2494790C005A7447 /* GLESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB0FD752494790C005A7447 /* GLESUtils.m */; };
@@ -142,6 +144,10 @@
 		2CAFD99A24AAF65600AC214B /* CCTemperature.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CCTemperature.fsh; sourceTree = "<group>"; };
 		2CAFD99B24AAF65600AC214B /* CCSaturation.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CCSaturation.fsh; sourceTree = "<group>"; };
 		2CAFD99C24AAF65600AC214B /* CCVertexShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = CCVertexShader.vsh; sourceTree = "<group>"; };
+		2CAFD9A124AB2FE400AC214B /* ImageFilterChainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageFilterChainVC.h; sourceTree = "<group>"; };
+		2CAFD9A224AB2FE400AC214B /* ImageFilterChainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageFilterChainVC.m; sourceTree = "<group>"; };
+		2CAFD9A424AB301E00AC214B /* FilterChainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterChainView.h; sourceTree = "<group>"; };
+		2CAFD9A524AB301E00AC214B /* FilterChainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterChainView.m; sourceTree = "<group>"; };
 		2CB0FD6E249477EE005A7447 /* MVPTransfromVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPTransfromVC.h; sourceTree = "<group>"; };
 		2CB0FD6F249477EE005A7447 /* MVPTransfromVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVPTransfromVC.m; sourceTree = "<group>"; };
 		2CB0FD7124947827005A7447 /* MVPTransfromView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVPTransfromView.h; sourceTree = "<group>"; };
@@ -359,6 +365,10 @@
 				2CAFD99524AADF1400AC214B /* SingleFilterVC.m */,
 				2CAFD99724AAE04A00AC214B /* OneFilterImageView.h */,
 				2CAFD99824AAE04A00AC214B /* OneFilterImageView.m */,
+				2CAFD9A124AB2FE400AC214B /* ImageFilterChainVC.h */,
+				2CAFD9A224AB2FE400AC214B /* ImageFilterChainVC.m */,
+				2CAFD9A424AB301E00AC214B /* FilterChainView.h */,
+				2CAFD9A524AB301E00AC214B /* FilterChainView.m */,
 			);
 			path = imageFilter;
 			sourceTree = "<group>";
@@ -570,8 +580,10 @@
 				2C54DEA724A5AAD80015C9FD /* GPUImageFilter.m in Sources */,
 				2C9C6BBD2492218D00B4E177 /* CCGLView.m in Sources */,
 				2C05BA672498AEA9000CDD99 /* VideoCaptureView.m in Sources */,
+				2CAFD9A324AB2FE400AC214B /* ImageFilterChainVC.m in Sources */,
 				2CB903E72493283000CDBB27 /* ImageViewController.m in Sources */,
 				2CB0FD70249477EE005A7447 /* MVPTransfromVC.m in Sources */,
+				2CAFD9A624AB301E00AC214B /* FilterChainView.m in Sources */,
 				2C54DEAD24A5ADAC0015C9FD /* GPUImageView.m in Sources */,
 				2C6DD71124A88A4100902426 /* GPUImageGaussianBlurFilter.m in Sources */,
 				2C54DEA124A5AA030015C9FD /* GPUImageFramebufferCache.m in Sources */,

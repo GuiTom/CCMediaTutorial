@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)GLuint frameBuffer;
 @property(nonatomic,assign)GLuint shaderProgram;
 -(void)setUpLayer;
+- (BOOL)checkFramebuffer:(NSError *__autoreleasing *)error ;
 -(void)complileShader:(NSString*)shaderrv shaderrf:(NSString*)shaderrf;
 @end
 

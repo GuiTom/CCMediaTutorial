@@ -30,6 +30,11 @@
     
     [self setupFrameRenderBuffer];
     
+    //检查FrameBuffer
+    NSError *error;
+    NSAssert1([self checkFramebuffer:&error], @"%@",error.userInfo[@"ErrorMessage"]);
+    
+    
     [self setupViewPort];
     
    
@@ -99,7 +104,42 @@
     glViewport(0, 0, self.frame.size.width*scale, self.frame.size.height*scale);
     
 }
-
+- (BOOL)checkFramebuffer:(NSError *__autoreleasing *)error {
+    
+    // 检查 framebuffer 是否创建成功
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    NSString *errorMessage = nil;
+    BOOL result = NO;
+    switch (status)
+    {
+        case GL_FRAMEBUFFER_UNSUPPORTED:
+            errorMessage = @"framebuffer不支持该格式";
+            result = NO;
+            break;
+        case GL_FRAMEBUFFER_COMPLETE:
+            NSLog(@"framebuffer 创建成功");
+            result = YES;
+            break;
+        case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+            errorMessage = @"Framebuffer不完整 缺失组件";
+            result = NO;
+            break;
+        case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS:
+            errorMessage = @"Framebuffer 不完整, 附加图片必须要指定大小";
+            result = NO;
+            break;
+        default:
+            // 一般是超出GL纹理的最大限制
+            errorMessage = @"未知错误 error !!!!";
+            result = NO;
+            break;
+    }
+    NSLog(@"%@",errorMessage ? errorMessage : @"");
+    *error = errorMessage ? [NSError errorWithDomain:@"com.Yue.error"
+                                                code:status
+                                            userInfo:@{@"ErrorMessage" : errorMessage}] : nil;
+    return result;
+}
 -(void)complileShader:(NSString*)shaderrv shaderrf:(NSString*)shaderrf{
     //2.读取顶点着色程序、片元着色程序
     NSString *vertFile = [[NSBundle mainBundle]pathForResource:shaderrv ofType:@"vsh"];
