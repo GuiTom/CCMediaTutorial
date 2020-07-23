@@ -20,6 +20,7 @@
 @property(strong,nonatomic)AVCaptureConnection *captureConnection;
 @property (strong, nonatomic) WCLRecordEncoder  *recordEncoder;//录制编码
 @property(assign,nonatomic)BOOL needCapture;
+@property(assign,nonatomic)BOOL usePBO;
 @end
 @implementation VideoCaptureViewController
 {
@@ -39,8 +40,14 @@
     [self.view addSubview:buttonA];
     
     [buttonA addTarget:self action:@selector(onClickButtonA:) forControlEvents:UIControlEventTouchUpInside];
-    [buttonA setTitle:@"开始" forState:UIControlStateNormal];
+    [buttonA setTitle:@"开始录制" forState:UIControlStateNormal];
+    UISwitch *switcher = [[UISwitch alloc] initWithFrame:CGRectMake(100, 200, 100, 30)];
+    [self.view addSubview:switcher];
+    [switcher addTarget:self action:@selector(onSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     [self setupCaptureSession];
+}
+-(void)onSwitchChanged:(UISwitch*)switcher{
+    self.usePBO = switcher.on;
 }
 -(void)onClickButtonA:(UIButton*)sender{
     if(self.needCapture){
