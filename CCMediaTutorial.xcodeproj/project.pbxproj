@@ -45,6 +45,22 @@
 		2CB903F92493329E00CDBB27 /* RectangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB903F82493329E00CDBB27 /* RectangleView.m */; };
 		2CCBCEB924C933A0000CE4CC /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCBCEB824C93291000CE4CC /* libiconv.2.4.0.tbd */; };
 		2CCBD07C24C944D4000CE4CC /* libffmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCBD07B24C944D4000CE4CC /* libffmpeg.a */; };
+		2CCBD0AA24C94624000CE4CC /* AVAudioSession+RouteUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD08824C94623000CE4CC /* AVAudioSession+RouteUtils.m */; };
+		2CCBD0AB24C94624000CE4CC /* ELAudioSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD08A24C94623000CE4CC /* ELAudioSession.m */; };
+		2CCBD0AC24C94624000CE4CC /* AudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD08D24C94623000CE4CC /* AudioOutput.m */; };
+		2CCBD0AD24C94624000CE4CC /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD08E24C94623000CE4CC /* VideoPlayerViewController.m */; };
+		2CCBD0AE24C94624000CE4CC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2CCBD08F24C94623000CE4CC /* .gitignore */; };
+		2CCBD0AF24C94624000CE4CC /* DirectPassRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD09224C94624000CE4CC /* DirectPassRenderer.m */; };
+		2CCBD0B024C94624000CE4CC /* YUVFrameCopier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD09624C94624000CE4CC /* YUVFrameCopier.m */; };
+		2CCBD0B124C94624000CE4CC /* YUVFrameFastCopier.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD09724C94624000CE4CC /* YUVFrameFastCopier.m */; };
+		2CCBD0B224C94624000CE4CC /* BaseEffectFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD09A24C94624000CE4CC /* BaseEffectFilter.m */; };
+		2CCBD0B324C94624000CE4CC /* ContrastEnhancerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD09C24C94624000CE4CC /* ContrastEnhancerFilter.m */; };
+		2CCBD0B424C94624000CE4CC /* VideoOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD09E24C94624000CE4CC /* VideoOutput.m */; };
+		2CCBD0B524C94624000CE4CC /* VideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD0A224C94624000CE4CC /* VideoDecoder.m */; };
+		2CCBD0B624C94624000CE4CC /* VideoToolboxDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD0A424C94624000CE4CC /* VideoToolboxDecoder.m */; };
+		2CCBD0B724C94624000CE4CC /* AVSynchronizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD0A724C94624000CE4CC /* AVSynchronizer.m */; };
+		2CCBD0BB24C94653000CE4CC /* MyVideoPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CCBD0B924C94653000CE4CC /* MyVideoPlayerVC.m */; };
+		2CCBD0BC24C94653000CE4CC /* MyVideoPlayerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CCBD0BA24C94653000CE4CC /* MyVideoPlayerVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +155,36 @@
 		2CCBCEC424C93400000CE4CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2CCBCEC624C93407000CE4CC /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		2CCBD07B24C944D4000CE4CC /* libffmpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libffmpeg.a; sourceTree = "<group>"; };
+		2CCBD08824C94623000CE4CC /* AVAudioSession+RouteUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAudioSession+RouteUtils.m"; sourceTree = "<group>"; };
+		2CCBD08924C94623000CE4CC /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
+		2CCBD08A24C94623000CE4CC /* ELAudioSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELAudioSession.m; sourceTree = "<group>"; };
+		2CCBD08B24C94623000CE4CC /* AVAudioSession+RouteUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAudioSession+RouteUtils.h"; sourceTree = "<group>"; };
+		2CCBD08C24C94623000CE4CC /* ELAudioSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELAudioSession.h; sourceTree = "<group>"; };
+		2CCBD08D24C94623000CE4CC /* AudioOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioOutput.m; sourceTree = "<group>"; };
+		2CCBD08E24C94623000CE4CC /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		2CCBD08F24C94623000CE4CC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2CCBD09224C94624000CE4CC /* DirectPassRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectPassRenderer.m; sourceTree = "<group>"; };
+		2CCBD09324C94624000CE4CC /* BaseEffectFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEffectFilter.h; sourceTree = "<group>"; };
+		2CCBD09424C94624000CE4CC /* DirectPassRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectPassRenderer.h; sourceTree = "<group>"; };
+		2CCBD09624C94624000CE4CC /* YUVFrameCopier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUVFrameCopier.m; sourceTree = "<group>"; };
+		2CCBD09724C94624000CE4CC /* YUVFrameFastCopier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUVFrameFastCopier.m; sourceTree = "<group>"; };
+		2CCBD09824C94624000CE4CC /* YUVFrameFastCopier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUVFrameFastCopier.h; sourceTree = "<group>"; };
+		2CCBD09924C94624000CE4CC /* YUVFrameCopier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUVFrameCopier.h; sourceTree = "<group>"; };
+		2CCBD09A24C94624000CE4CC /* BaseEffectFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEffectFilter.m; sourceTree = "<group>"; };
+		2CCBD09C24C94624000CE4CC /* ContrastEnhancerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContrastEnhancerFilter.m; sourceTree = "<group>"; };
+		2CCBD09D24C94624000CE4CC /* ContrastEnhancerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContrastEnhancerFilter.h; sourceTree = "<group>"; };
+		2CCBD09E24C94624000CE4CC /* VideoOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoOutput.m; sourceTree = "<group>"; };
+		2CCBD09F24C94624000CE4CC /* VideoOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoOutput.h; sourceTree = "<group>"; };
+		2CCBD0A224C94624000CE4CC /* VideoDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDecoder.m; sourceTree = "<group>"; };
+		2CCBD0A424C94624000CE4CC /* VideoToolboxDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoToolboxDecoder.m; sourceTree = "<group>"; };
+		2CCBD0A524C94624000CE4CC /* VideoToolboxDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoToolboxDecoder.h; sourceTree = "<group>"; };
+		2CCBD0A624C94624000CE4CC /* VideoDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDecoder.h; sourceTree = "<group>"; };
+		2CCBD0A724C94624000CE4CC /* AVSynchronizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSynchronizer.m; sourceTree = "<group>"; };
+		2CCBD0A824C94624000CE4CC /* AVSynchronizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSynchronizer.h; sourceTree = "<group>"; };
+		2CCBD0A924C94624000CE4CC /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		2CCBD0B824C94653000CE4CC /* MyVideoPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MyVideoPlayerVC.h; path = CCMediaTutorial/video/MyVideoPlayerVC.h; sourceTree = SOURCE_ROOT; };
+		2CCBD0B924C94653000CE4CC /* MyVideoPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MyVideoPlayerVC.m; path = CCMediaTutorial/video/MyVideoPlayerVC.m; sourceTree = SOURCE_ROOT; };
+		2CCBD0BA24C94653000CE4CC /* MyVideoPlayerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MyVideoPlayerVC.xib; path = CCMediaTutorial/video/MyVideoPlayerVC.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +259,6 @@
 		2C9C6B7924921A2C00B4E177 /* CCMediaTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				2CCBD07324C944BB000CE4CC /* FFmpeg */,
 				2C9C6BB624921C3700B4E177 /* openglES */,
 				2C9C6BB724921C4E00B4E177 /* video */,
 				2C9C6BAF24921AC700B4E177 /* home */,
@@ -276,6 +321,8 @@
 		2C9C6BB724921C4E00B4E177 /* video */ = {
 			isa = PBXGroup;
 			children = (
+				2CCBD07324C944BB000CE4CC /* FFmpeg */,
+				2CCBD08624C94623000CE4CC /* videoplayer */,
 			);
 			path = video;
 			sourceTree = "<group>";
@@ -381,6 +428,9 @@
 			children = (
 				2CCBD07B24C944D4000CE4CC /* libffmpeg.a */,
 				2CCBD07424C944BB000CE4CC /* include */,
+				2CCBD0B824C94653000CE4CC /* MyVideoPlayerVC.h */,
+				2CCBD0B924C94653000CE4CC /* MyVideoPlayerVC.m */,
+				2CCBD0BA24C94653000CE4CC /* MyVideoPlayerVC.xib */,
 			);
 			path = FFmpeg;
 			sourceTree = "<group>";
@@ -438,6 +488,104 @@
 			children = (
 			);
 			path = libswresample;
+			sourceTree = "<group>";
+		};
+		2CCBD08624C94623000CE4CC /* videoplayer */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD08724C94623000CE4CC /* audio_output */,
+				2CCBD08E24C94623000CE4CC /* VideoPlayerViewController.m */,
+				2CCBD08F24C94623000CE4CC /* .gitignore */,
+				2CCBD09024C94623000CE4CC /* video_output */,
+				2CCBD0A024C94624000CE4CC /* sync */,
+				2CCBD0A924C94624000CE4CC /* VideoPlayerViewController.h */,
+			);
+			path = videoplayer;
+			sourceTree = "<group>";
+		};
+		2CCBD08724C94623000CE4CC /* audio_output */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD08824C94623000CE4CC /* AVAudioSession+RouteUtils.m */,
+				2CCBD08924C94623000CE4CC /* AudioOutput.h */,
+				2CCBD08A24C94623000CE4CC /* ELAudioSession.m */,
+				2CCBD08B24C94623000CE4CC /* AVAudioSession+RouteUtils.h */,
+				2CCBD08C24C94623000CE4CC /* ELAudioSession.h */,
+				2CCBD08D24C94623000CE4CC /* AudioOutput.m */,
+			);
+			path = audio_output;
+			sourceTree = "<group>";
+		};
+		2CCBD09024C94623000CE4CC /* video_output */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD09124C94624000CE4CC /* render */,
+				2CCBD09E24C94624000CE4CC /* VideoOutput.m */,
+				2CCBD09F24C94624000CE4CC /* VideoOutput.h */,
+			);
+			path = video_output;
+			sourceTree = "<group>";
+		};
+		2CCBD09124C94624000CE4CC /* render */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD09224C94624000CE4CC /* DirectPassRenderer.m */,
+				2CCBD09324C94624000CE4CC /* BaseEffectFilter.h */,
+				2CCBD09424C94624000CE4CC /* DirectPassRenderer.h */,
+				2CCBD09524C94624000CE4CC /* copier */,
+				2CCBD09A24C94624000CE4CC /* BaseEffectFilter.m */,
+				2CCBD09B24C94624000CE4CC /* filter */,
+			);
+			path = render;
+			sourceTree = "<group>";
+		};
+		2CCBD09524C94624000CE4CC /* copier */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD09624C94624000CE4CC /* YUVFrameCopier.m */,
+				2CCBD09724C94624000CE4CC /* YUVFrameFastCopier.m */,
+				2CCBD09824C94624000CE4CC /* YUVFrameFastCopier.h */,
+				2CCBD09924C94624000CE4CC /* YUVFrameCopier.h */,
+			);
+			path = copier;
+			sourceTree = "<group>";
+		};
+		2CCBD09B24C94624000CE4CC /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD09C24C94624000CE4CC /* ContrastEnhancerFilter.m */,
+				2CCBD09D24C94624000CE4CC /* ContrastEnhancerFilter.h */,
+			);
+			path = filter;
+			sourceTree = "<group>";
+		};
+		2CCBD0A024C94624000CE4CC /* sync */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD0A124C94624000CE4CC /* decoder */,
+				2CCBD0A724C94624000CE4CC /* AVSynchronizer.m */,
+				2CCBD0A824C94624000CE4CC /* AVSynchronizer.h */,
+			);
+			path = sync;
+			sourceTree = "<group>";
+		};
+		2CCBD0A124C94624000CE4CC /* decoder */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD0A224C94624000CE4CC /* VideoDecoder.m */,
+				2CCBD0A324C94624000CE4CC /* hw_decoder */,
+				2CCBD0A624C94624000CE4CC /* VideoDecoder.h */,
+			);
+			path = decoder;
+			sourceTree = "<group>";
+		};
+		2CCBD0A324C94624000CE4CC /* hw_decoder */ = {
+			isa = PBXGroup;
+			children = (
+				2CCBD0A424C94624000CE4CC /* VideoToolboxDecoder.m */,
+				2CCBD0A524C94624000CE4CC /* VideoToolboxDecoder.h */,
+			);
+			path = hw_decoder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,6 +694,7 @@
 				2CAFD99D24AAF65600AC214B /* CCTemperature.fsh in Resources */,
 				2CAFD99E24AAF65600AC214B /* CCSaturation.fsh in Resources */,
 				2CB903F024932E3900CDBB27 /* triangle.vsh in Resources */,
+				2CCBD0BC24C94653000CE4CC /* MyVideoPlayerVC.xib in Resources */,
 				2CB903F224932E4C00CDBB27 /* triangle.fsh in Resources */,
 				2CAFD99F24AAF65600AC214B /* CCVertexShader.vsh in Resources */,
 				2C9C6BC2249237DE00B4E177 /* shaderImageView.fsh in Resources */,
@@ -554,6 +703,7 @@
 				2C9C6BC3249237DE00B4E177 /* shaderImageView.vsh in Resources */,
 				2C9C6B8724921A2F00B4E177 /* Assets.xcassets in Resources */,
 				2CB0FD7F24947AB0005A7447 /* shaderMVP.vsh in Resources */,
+				2CCBD0AE24C94624000CE4CC /* .gitignore in Resources */,
 				2CB0FD8024947AB0005A7447 /* shaderMVP.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,22 +732,36 @@
 				2C9C6B7C24921A2C00B4E177 /* AppDelegate.m in Sources */,
 				2C05BA642498AE85000CDD99 /* VideoCaptureViewController.m in Sources */,
 				2C9C6BBD2492218D00B4E177 /* CCGLView.m in Sources */,
+				2CCBD0AD24C94624000CE4CC /* VideoPlayerViewController.m in Sources */,
+				2CCBD0B024C94624000CE4CC /* YUVFrameCopier.m in Sources */,
+				2CCBD0AC24C94624000CE4CC /* AudioOutput.m in Sources */,
+				2CCBD0B724C94624000CE4CC /* AVSynchronizer.m in Sources */,
 				2C05BA672498AEA9000CDD99 /* VideoCaptureView.m in Sources */,
 				2CAFD9A324AB2FE400AC214B /* ImageFilterChainVC.m in Sources */,
 				2CB903E72493283000CDBB27 /* ImageViewController.m in Sources */,
 				2CB0FD70249477EE005A7447 /* MVPTransfromVC.m in Sources */,
+				2CCBD0B624C94624000CE4CC /* VideoToolboxDecoder.m in Sources */,
 				2CAFD9A624AB301E00AC214B /* FilterChainView.m in Sources */,
 				2CB903F92493329E00CDBB27 /* RectangleView.m in Sources */,
 				2C9C6B8D24921A2F00B4E177 /* main.m in Sources */,
+				2CCBD0BB24C94653000CE4CC /* MyVideoPlayerVC.m in Sources */,
 				2CB903F62493326F00CDBB27 /* RectangleViewController.m in Sources */,
 				2CB0FD7C2494790C005A7447 /* GLESMath.c in Sources */,
+				2CCBD0B124C94624000CE4CC /* YUVFrameFastCopier.m in Sources */,
+				2CCBD0B424C94624000CE4CC /* VideoOutput.m in Sources */,
 				2CAFD99624AADF1400AC214B /* SingleFilterVC.m in Sources */,
 				2C9C6BB424921AC700B4E177 /* HomeDataSource.m in Sources */,
 				2CB0FD7B2494790C005A7447 /* GLESUtils.m in Sources */,
 				2CB903EE24932B4300CDBB27 /* TriangleView.m in Sources */,
+				2CCBD0AF24C94624000CE4CC /* DirectPassRenderer.m in Sources */,
 				2C9C6BBA24921C8F00B4E177 /* TriangleViewController.m in Sources */,
+				2CCBD0B524C94624000CE4CC /* VideoDecoder.m in Sources */,
 				2C3A1A57249B3D6D0037DD44 /* WCLRecordEncoder.m in Sources */,
+				2CCBD0AB24C94624000CE4CC /* ELAudioSession.m in Sources */,
+				2CCBD0B324C94624000CE4CC /* ContrastEnhancerFilter.m in Sources */,
 				2CAFD99924AAE04A00AC214B /* OneFilterImageView.m in Sources */,
+				2CCBD0B224C94624000CE4CC /* BaseEffectFilter.m in Sources */,
+				2CCBD0AA24C94624000CE4CC /* AVAudioSession+RouteUtils.m in Sources */,
 				2CB903E32492776A00CDBB27 /* CCImageView.m in Sources */,
 				2CB0FD7324947827005A7447 /* MVPTransfromView.m in Sources */,
 				2C9C6BB524921AC700B4E177 /* HomeViewController.m in Sources */,

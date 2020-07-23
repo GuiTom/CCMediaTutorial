@@ -16,7 +16,7 @@
 
 #import "SingleFilterVC.h"
 #import "ImageFilterChainVC.h"
-//#import "MyVideoPlayerVC.h"
+#import "MyVideoPlayerVC.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *table;
 
@@ -97,7 +97,7 @@ static NSString *cellId = @"cellID";
         }
     }else if([header isEqualToString:@"音视频编解码"]){
         if([title isEqualToString:@"视频播放器"]){
-//            [self.navigationController pushViewController:[MyVideoPlayerVC new] animated:YES];
+            [self.navigationController pushViewController:[MyVideoPlayerVC new] animated:YES];
         }
     }
     
