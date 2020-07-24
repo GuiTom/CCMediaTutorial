@@ -1,0 +1,3 @@
+[submodule "FFmpeg-iOS-build-script"]
+	path = FFmpeg-iOS-build-script
+	url = https://github.com/GuiTom/FFmpeg-iOS-build-script.git

@@ -228,6 +228,7 @@ static int interrupt_callback(void *ctx)
         _videoCodecCtx = codecCtx;
         // determine fps
         AVStream *st = _formatCtx->streams[_videoStreamIndex];
+        //读取FPS
         avStreamFPSTimeBase(st, 0.04, &_fps, &_videoTimeBase);
         break;
     }
@@ -310,7 +311,8 @@ static int interrupt_callback(void *ctx)
 
 - (int) openInput: (NSString*) path parameter:(NSDictionary*) parameters;
 {
-    AVFormatContext *formatCtx = avformat_alloc_context();
+    /**读取数据格式到formatCtx*/
+    AVFormatContext *formatCtx = avformat_alloc_context();//生成一个context
     AVIOInterruptCB int_cb  = {interrupt_callback, (__bridge void *)(self)};
     formatCtx->interrupt_callback = int_cb;
     int openInputErrCode = 0;
@@ -320,10 +322,15 @@ static int interrupt_callback(void *ctx)
             avformat_free_context(formatCtx);
         return openInputErrCode;
     }
+    
     [self initAnalyzeDurationAndProbesize:formatCtx parameter:parameters];
+    /**--------------------------------*/
+    
     int findStreamErrCode = 0;
     double startFindStreamTimeMills = CFAbsoluteTimeGetCurrent() * 1000;
+    //读取流信息
     if ((findStreamErrCode = avformat_find_stream_info(formatCtx, NULL)) < 0) {
+        //读取失败就关闭
         avformat_close_input(&formatCtx);
         avformat_free_context(formatCtx);
         NSLog(@"Video decoder find stream info failed... find stream ErrCode is %s", av_err2str(findStreamErrCode));
@@ -331,7 +338,7 @@ static int interrupt_callback(void *ctx)
     }
     int wasteTimeMills = CFAbsoluteTimeGetCurrent() * 1000 - startFindStreamTimeMills;
     NSLog(@"Find Stream Info waste TimeMills is %d", wasteTimeMills);
-    if (formatCtx->streams[0]->codec->codec_id == AV_CODEC_ID_NONE) {
+    if (formatCtx->streams[0]->codec->codec_id == AV_CODEC_ID_NONE) {//没有找到对应的编解码器
         avformat_close_input(&formatCtx);
         avformat_free_context(formatCtx);
         NSLog(@"Video decoder First Stream Codec ID Is UnKnown...");

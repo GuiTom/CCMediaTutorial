@@ -96,40 +96,40 @@
     _synchronizer = [[AVSynchronizer alloc] initWithPlayerStateDelegate:_playerStateDelegate];
     __weak VideoPlayerViewController *weakSelf = self;
     BOOL isIOS8OrUpper = ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0);
+    
     dispatch_async(dispatch_get_global_queue(isIOS8OrUpper ? QOS_CLASS_USER_INTERACTIVE:DISPATCH_QUEUE_PRIORITY_HIGH, 0) , ^{
         __strong VideoPlayerViewController *strongSelf = weakSelf;
         if (strongSelf) {
             NSError *error = nil;
             OpenState state = OPEN_FAILED;
-            if([_parameters count] > 0){
-                state = [strongSelf->_synchronizer openFile:_videoFilePath usingHWCodec:_usingHWCodec parameters:_parameters error:&error];
+            if([strongSelf->_parameters count] > 0){
+                state = [strongSelf->_synchronizer openFile:strongSelf->_videoFilePath usingHWCodec:strongSelf->_usingHWCodec parameters:strongSelf->_parameters error:&error];
             } else {
-                state = [strongSelf->_synchronizer openFile:_videoFilePath usingHWCodec:_usingHWCodec error:&error];
+                state = [strongSelf->_synchronizer openFile:strongSelf->_videoFilePath usingHWCodec:strongSelf->_usingHWCodec error:&error];
             }
-            _usingHWCodec = [strongSelf->_synchronizer usingHWCodec];
+            weakSelf.usingHWCodec = [strongSelf->_synchronizer usingHWCodec];
             if(OPEN_SUCCESS == state){
                 //启动AudioOutput与VideoOutput
-       
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    _videoOutput = [strongSelf createVideoOutputInstance];
-                           _videoOutput.contentMode = UIViewContentModeScaleAspectFill;
-                           _videoOutput.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+                   strongSelf->_videoOutput = [strongSelf createVideoOutputInstance];
+                    strongSelf->_videoOutput.contentMode = UIViewContentModeScaleAspectFill;
+                    strongSelf->_videoOutput.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
                     self.view.backgroundColor = [UIColor clearColor];
-                    [self.view insertSubview:_videoOutput atIndex:0];
+                    [self.view insertSubview:strongSelf->_videoOutput atIndex:0];
                 });
-                NSInteger audioChannels = [_synchronizer getAudioChannels];
-                NSInteger audioSampleRate = [_synchronizer getAudioSampleRate];
+                NSInteger audioChannels = [strongSelf->_synchronizer getAudioChannels];
+                NSInteger audioSampleRate = [strongSelf->_synchronizer getAudioSampleRate];
                 NSInteger bytesPerSample = 2;
-                _audioOutput = [[AudioOutput alloc] initWithChannels:audioChannels sampleRate:audioSampleRate bytesPerSample:bytesPerSample filleDataDelegate:self];
-                [_audioOutput play];
-                _isPlaying = YES;
+                strongSelf->_audioOutput = [[AudioOutput alloc] initWithChannels:audioChannels sampleRate:audioSampleRate/2 bytesPerSample:bytesPerSample filleDataDelegate:self];
+                [strongSelf->_audioOutput play];
+                strongSelf->_isPlaying = YES;
 
-                if(_playerStateDelegate && [_playerStateDelegate respondsToSelector:@selector(openSucceed)]){
-                    [_playerStateDelegate openSucceed];
+                if(strongSelf->_playerStateDelegate && [strongSelf->_playerStateDelegate respondsToSelector:@selector(openSucceed)]){
+                    [strongSelf->_playerStateDelegate openSucceed];
                 }
             } else if(OPEN_FAILED == state){
-                if(_playerStateDelegate && [_playerStateDelegate respondsToSelector:@selector(connectFailed)]){
-                    [_playerStateDelegate connectFailed];
+                if(strongSelf->_playerStateDelegate && [strongSelf->_playerStateDelegate respondsToSelector:@selector(connectFailed)]){
+                    [strongSelf->_playerStateDelegate connectFailed];
                 }
             }
         }
