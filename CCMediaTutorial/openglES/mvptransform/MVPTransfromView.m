@@ -44,7 +44,7 @@
             0.5f, 0.5f, 0.0f,       1.0f, 0.0f, 1.0f, //右上
             -0.5f, -0.5f, 0.0f,     1.0f, 1.0f, 1.0f, //左下
             0.5f, -0.5f, 0.0f,      1.0f, 1.0f, 1.0f, //右下
-            0.0f, 0.0f, 2.0f,       0.0f, 1.0f, 0.0f, //顶点
+            0.0f, 0.0f, 3.0f,       0.0f, 1.0f, 0.0f, //顶点
         };
         glBindBuffer(GL_ARRAY_BUFFER, _myVertices);
         glBufferData(GL_ARRAY_BUFFER, sizeof(attrArr), attrArr, GL_DYNAMIC_DRAW);
@@ -79,7 +79,7 @@
         ksMatrixLoadIdentity(&_modelViewMatrix);
 
         //平移
-        ksTranslate(&_projectionMatrix, 0.0, 0.0, -6.9);
+        ksTranslate(&_projectionMatrix, 0.0, 0.0, -7);
         KSMatrix4 _rotationMatrix;
         ksMatrixLoadIdentity(&_rotationMatrix);
 

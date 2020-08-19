@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2C05BA642498AE85000CDD99 /* VideoCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05BA632498AE85000CDD99 /* VideoCaptureViewController.m */; };
 		2C05BA672498AEA9000CDD99 /* VideoCaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05BA662498AEA9000CDD99 /* VideoCaptureView.m */; };
+		2C214A5F24E9085A00CE1FEB /* ParticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C214A5E24E9085A00CE1FEB /* ParticleViewController.m */; };
+		2C214A6224E9087700CE1FEB /* ParticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C214A6124E9087700CE1FEB /* ParticleView.m */; };
+		2C214A6424E90A2C00CE1FEB /* particle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C214A6324E90A2C00CE1FEB /* particle.png */; };
+		2C214A6724E90AAE00CE1FEB /* particle.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C214A6524E90AAE00CE1FEB /* particle.fsh */; };
+		2C214A6824E90AAE00CE1FEB /* particle.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 2C214A6624E90AAE00CE1FEB /* particle.vsh */; };
 		2C3A1A57249B3D6D0037DD44 /* WCLRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A1A55249B3D6D0037DD44 /* WCLRecordEncoder.m */; };
 		2C9C6B7C24921A2C00B4E177 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C6B7B24921A2C00B4E177 /* AppDelegate.m */; };
 		2C9C6B8724921A2F00B4E177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C6B8624921A2F00B4E177 /* Assets.xcassets */; };
@@ -86,6 +91,13 @@
 		2C05BA632498AE85000CDD99 /* VideoCaptureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCaptureViewController.m; sourceTree = "<group>"; };
 		2C05BA652498AEA9000CDD99 /* VideoCaptureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCaptureView.h; sourceTree = "<group>"; };
 		2C05BA662498AEA9000CDD99 /* VideoCaptureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCaptureView.m; sourceTree = "<group>"; };
+		2C214A5D24E9085A00CE1FEB /* ParticleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleViewController.h; sourceTree = "<group>"; };
+		2C214A5E24E9085A00CE1FEB /* ParticleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleViewController.m; sourceTree = "<group>"; };
+		2C214A6024E9087700CE1FEB /* ParticleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleView.h; sourceTree = "<group>"; };
+		2C214A6124E9087700CE1FEB /* ParticleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParticleView.m; sourceTree = "<group>"; };
+		2C214A6324E90A2C00CE1FEB /* particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = particle.png; sourceTree = "<group>"; };
+		2C214A6524E90AAE00CE1FEB /* particle.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = particle.fsh; sourceTree = "<group>"; };
+		2C214A6624E90AAE00CE1FEB /* particle.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = particle.vsh; sourceTree = "<group>"; };
 		2C3A1A54249B3D6D0037DD44 /* WCLRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCLRecordEncoder.h; sourceTree = "<group>"; };
 		2C3A1A55249B3D6D0037DD44 /* WCLRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCLRecordEncoder.m; sourceTree = "<group>"; };
 		2C9C6B7724921A2C00B4E177 /* CCMediaTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCMediaTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -302,6 +314,19 @@
 			path = videoCapture;
 			sourceTree = "<group>";
 		};
+		2C214A5C24E907DE00CE1FEB /* particleSystem */ = {
+			isa = PBXGroup;
+			children = (
+				2C214A6624E90AAE00CE1FEB /* particle.vsh */,
+				2C214A6524E90AAE00CE1FEB /* particle.fsh */,
+				2C214A5D24E9085A00CE1FEB /* ParticleViewController.h */,
+				2C214A5E24E9085A00CE1FEB /* ParticleViewController.m */,
+				2C214A6024E9087700CE1FEB /* ParticleView.h */,
+				2C214A6124E9087700CE1FEB /* ParticleView.m */,
+			);
+			path = particleSystem;
+			sourceTree = "<group>";
+		};
 		2C3A1A53249B3D6D0037DD44 /* WCLRecordEncoder */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +406,7 @@
 		2C9C6BB624921C3700B4E177 /* openglES */ = {
 			isa = PBXGroup;
 			children = (
+				2C214A5C24E907DE00CE1FEB /* particleSystem */,
 				2C05BA612498AE57000CDD99 /* videoCapture */,
 				2CAFD99224AADEB500AC214B /* imageFilter */,
 				2CB0FD742494790C005A7447 /* Utils */,
@@ -744,6 +770,7 @@
 		2CCBD14524C95C6B000CE4CC /* res */ = {
 			isa = PBXGroup;
 			children = (
+				2C214A6324E90A2C00CE1FEB /* particle.png */,
 				2CCBD14824C95ECA000CE4CC /* test.flv */,
 			);
 			path = res;
@@ -855,6 +882,7 @@
 				2CAFD99D24AAF65600AC214B /* CCTemperature.fsh in Resources */,
 				2CAFD99E24AAF65600AC214B /* CCSaturation.fsh in Resources */,
 				2CB903F024932E3900CDBB27 /* triangle.vsh in Resources */,
+				2C214A6424E90A2C00CE1FEB /* particle.png in Resources */,
 				2CCBD14424C94A11000CE4CC /* MyVideoPlayerVC.xib in Resources */,
 				2CB903F224932E4C00CDBB27 /* triangle.fsh in Resources */,
 				2CAFD99F24AAF65600AC214B /* CCVertexShader.vsh in Resources */,
@@ -862,9 +890,11 @@
 				2C9C6B8A24921A2F00B4E177 /* LaunchScreen.storyboard in Resources */,
 				2C9C6BBF2492368A00B4E177 /* 1.jpg in Resources */,
 				2CCBD14924C95F00000CE4CC /* test.flv in Resources */,
+				2C214A6724E90AAE00CE1FEB /* particle.fsh in Resources */,
 				2C9C6BC3249237DE00B4E177 /* shaderImageView.vsh in Resources */,
 				2C9C6B8724921A2F00B4E177 /* Assets.xcassets in Resources */,
 				2CB0FD7F24947AB0005A7447 /* shaderMVP.vsh in Resources */,
+				2C214A6824E90AAE00CE1FEB /* particle.vsh in Resources */,
 				2CCBD13624C949DD000CE4CC /* .gitignore in Resources */,
 				2CB0FD8024947AB0005A7447 /* shaderMVP.fsh in Resources */,
 			);
@@ -923,10 +953,12 @@
 				2CCBD13B24C949DD000CE4CC /* ContrastEnhancerFilter.m in Sources */,
 				2CAFD99924AAE04A00AC214B /* OneFilterImageView.m in Sources */,
 				2CCBD13A24C949DD000CE4CC /* BaseEffectFilter.m in Sources */,
+				2C214A6224E9087700CE1FEB /* ParticleView.m in Sources */,
 				2CCBD13224C949DD000CE4CC /* AVAudioSession+RouteUtils.m in Sources */,
 				2CB903E32492776A00CDBB27 /* CCImageView.m in Sources */,
 				2CB0FD7324947827005A7447 /* MVPTransfromView.m in Sources */,
 				2C9C6BB524921AC700B4E177 /* HomeViewController.m in Sources */,
+				2C214A5F24E9085A00CE1FEB /* ParticleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

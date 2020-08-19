@@ -17,6 +17,7 @@
 #import "SingleFilterVC.h"
 #import "ImageFilterChainVC.h"
 #import "MyVideoPlayerVC.h"
+#import "ParticleViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(strong,nonatomic)UITableView *table;
 
@@ -94,6 +95,8 @@ static NSString *cellId = @"cellID";
             [self.navigationController pushViewController:[SingleFilterVC new] animated:YES];
         }else if([title isEqualToString:@"图片滤镜(流水线)"]){
             [self.navigationController pushViewController:[ImageFilterChainVC new] animated:YES];
+        }else if([title isEqualToString:@"粒子系统"]){
+            [self.navigationController pushViewController:[ParticleViewController new] animated:YES];
         }
     }else if([header isEqualToString:@"音视频编解码"]){
         if([title isEqualToString:@"视频播放器"]){
