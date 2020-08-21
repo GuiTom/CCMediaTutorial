@@ -110,13 +110,7 @@ GLint glViewUniforms[NUM_UNIFORMS];
     //清理屏幕
     glClear(GL_COLOR_BUFFER_BIT);
     
-    //为当前的program指定uniform值
-    /*
-     glUniform1i (GLint location, GLint x)
-     参数列表:
-     1.location,位置
-     2.value,值
-     */
+  
     //纹理
     glUniform1i(glViewUniforms[UNIFORM_INPUT_IMAGE_TEXTURE], 0);//注意这个地方最后的0 对应前面绑定的GL_TEXTURE0，如果是1就对应 GL_TEXTURE1，
     //饱和度

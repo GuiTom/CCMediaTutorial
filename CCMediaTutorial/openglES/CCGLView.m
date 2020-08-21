@@ -91,7 +91,7 @@
  初始化一个帧缓冲区
  */
 -(void)setupFrameRenderBuffer{
-    glGenRenderbuffers(1,&_frameBuffer);
+    glGenFramebuffers(1,&_frameBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, _frameBuffer);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, self.colorRenderBuffer);
 }
@@ -182,6 +182,8 @@
     //参数3：文件路径
     [self compileShader:&verShader type:GL_VERTEX_SHADER file:vert];
     [self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:frag];
+    
+
     
     //创建最终的程序
     glAttachShader(program, verShader);

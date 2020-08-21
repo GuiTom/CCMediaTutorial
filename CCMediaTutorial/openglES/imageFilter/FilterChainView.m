@@ -99,8 +99,6 @@ GLint glViewUniforms2[NUM_UNIFORMS];
     glBindFramebuffer(GL_FRAMEBUFFER, saurationFrameBuffer);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
     
-
-    
 }
 -(void)renderLayer{
     [self renderFirstLayer];
@@ -185,14 +183,6 @@ GLint glViewUniforms2[NUM_UNIFORMS];
     //清理屏幕
     glClear(GL_COLOR_BUFFER_BIT);
     
-    //为当前的program指定uniform值
-    /*
-     glUniform1i (GLint location, GLint x)
-     参数列表:
-     1.location,位置
-     2.value,值
-     */
-    //纹理
     glUniform1i(glViewUniforms2[UNIFORM_SATURATION_INPUT_IMAGE_TEXTURE], 1);//注意这个地方最后的1 对应前面绑定的GL_TEXTURE1，如果是0就对应 GL_TEXTURE0，
     //饱和度
     glUniform1f(glViewUniforms2[UNIFORM_SATURATION], self.sauration);
@@ -202,8 +192,6 @@ GLint glViewUniforms2[NUM_UNIFORMS];
     //纹理数据
     glVertexAttribPointer(glViewAttributes2[ATTRIBUTE_SATURATION_INPUT_TEXTURE_COORDINATE], 2, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), (GLvoid *)(sizeof(float) * 4));
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    
- 
 }
 -(void)renderSecondLayer{
     //绘制第一个滤镜
@@ -216,22 +204,14 @@ GLint glViewUniforms2[NUM_UNIFORMS];
 
     //清理屏幕
     glClear(GL_COLOR_BUFFER_BIT);
-    
-    //为当前的program指定uniform值
-    /*
-     glUniform1i (GLint location, GLint x)
-     参数列表:
-     1.location,位置
-     2.value,值
-     */
-    //纹理
-    glUniform1i(glViewUniforms2[ATTRIBUTE_TEMPERATURE_INPUT_TEXTURE_COORDINATE], 0);//注意这个地方最后的0 对应前面绑定的GL_TEXTURE0，如果是1就对应 GL_TEXTURE1，
-    //饱和度
+
+    glUniform1i(glViewUniforms2[ATTRIBUTE_TEMPERATURE_INPUT_TEXTURE_COORDINATE], 0);//注意这个地方最后的0
     glUniform1f(glViewUniforms2[UNIFORM_TEMPERATURE], self.temperature);
+    //将上一个frameBuffer的纹理GL_TEXTURE0作为输入纹理
+    glUniform1i(glViewUniforms2[UNIFORM_TEMPRATURE_INPUT_IMAGE_TEXTURE], 0);//注意这个地方最后的1
     
-    //顶点数据
     glVertexAttribPointer(glViewAttributes2[ATTRIBUTE_POSITION2], 4, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), 0);
-    //纹理数据
+  
     glVertexAttribPointer(glViewAttributes2[ATTRIBUTE_TEMPERATURE_INPUT_TEXTURE_COORDINATE], 2, GL_FLOAT, GL_FALSE, sizeof(CustomVertex), (GLvoid *)(sizeof(float) * 4));
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
@@ -306,19 +286,7 @@ GLint glViewUniforms2[NUM_UNIFORMS];
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
     
     //将图片载入纹理
-    /*
-     glTexImage2D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels)
-     参数列表:
-     1.target,目标纹理
-     2.level,一般设置为0
-     3.internalformat,纹理中颜色组件
-     4.width,纹理图像的宽度
-     5.height,纹理图像的高度
-     6.border,边框的宽度
-     7.format,像素数据的颜色格式
-     8.type,像素数据数据类型
-     9.pixels,内存中指向图像数据的指针
-     */
+
     glTexImage2D(GL_TEXTURE_2D,
                  0,
                  GL_RGBA,
