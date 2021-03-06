@@ -66,6 +66,9 @@
     glEnableVertexAttribArray(textCoor);
     BOOL useInices = YES;
     if(useInices){
+        //glDrawElements 也可以结合 ibo 使用，看这里,vbo,ibo,vao 的区别
+        //https://www.cnblogs.com/mazhenyu/p/6439423.html?utm_source=itdadao&utm_medium=referral
+        
         glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, Indices);
     }else {
         glDrawArrays(GL_TRIANGLES, 0, 3);   //GL_LINE_LOOP不带填充
